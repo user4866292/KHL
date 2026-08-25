@@ -1323,13 +1323,9 @@ font-family: "Hachi Maru Pop";
 
     <div class="probability">
 
-        ナルミン:
+        당첨 확률 
 
         <strong>0.3%</strong>
-
-          |  ゆずき: 
-
-        <strong>3%</strong>
     </div>
 
 
@@ -1615,11 +1611,12 @@ let currentUser = null;
    5성 = 0.01%
    4성 = 0.1%
 
-   DB에 기록되므로 조작 금지 !!
+   조작하지마세요오...조작하면안됩니다하....
 ========================================================= */
 
 const FIVE_STAR_RATE = 0.003;  // 0.3%
-const FOUR_STAR_RATE = 0.03;   // 5%
+const FOUR_STAR_RATE = 0.005;   // 0.5% => 0.8
+const HIDDEN_STAR_RATE = 0.005; // 0.5% => 1.3
 
 
 
@@ -1649,7 +1646,20 @@ const winCard4 = {
         "cards/win4.png",
 
     win:
-        true
+        false
+
+};
+
+const winCard3 = {
+
+    id:
+        "win_card3",
+
+    image:
+        "cards/win3.png",
+
+    win:
+        false
 
 };
 
@@ -1954,7 +1964,6 @@ function updateDrawCount() {
             currentUser.drawCount < 10;
 
 }
-
 
 
 
@@ -2271,7 +2280,14 @@ if (random < FIVE_STAR_RATE) {
 
     });
 
+} else if (random < FIVE_STAR_RATE + FOUR_STAR_RATE + HIDDEN_STAR_RATE){
+    results.push({
 
+        ...winCard3,
+
+        rarity: 3
+
+    });
 /* =================================================
    꽝
 ================================================= */
@@ -2542,6 +2558,11 @@ function createCards(results) {
 
                 cardClass +=
                     " win-card four-star";
+
+            } else if (card.rarity === 3) {
+
+                cardClass +=
+                    " win-card hidden-star";
 
             }
 
