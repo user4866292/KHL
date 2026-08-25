@@ -1455,7 +1455,9 @@ import {
     limit,
     getDocs,
     doc,
-    runTransaction
+    runTransaction,
+    addDoc,
+    serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
@@ -1524,7 +1526,7 @@ let currentUser = null;
 
 ========================================================= */
 
-const WIN_RATE = 0.0001;
+const WIN_RATE = 1; //DB에 확률 기록, 조작 금지
 
 
 
@@ -1680,31 +1682,6 @@ async function loginUser() {
 
     try {
 
-
-        /* =====================================================
-           ★★★ Firebase DB 구조 ★★★
-
-           컬렉션 이름:
-           users
-
-           예:
-
-           users
-             ├─ 문재인
-             │    ├─ name: "문재인"
-             │    └─ drawCount: 30
-             │
-             ├─ 홍길동
-             │    ├─ name: "홍길동"
-             │    └─ drawCount: 20
-             │
-             └─ 김철수
-                  ├─ name: "김철수"
-                  └─ drawCount: 0
-
-           ★★★ 여기만 네 DB 구조에 맞춰서
-               수정하면 됨. ★★★
-        ===================================================== */
 
 
         const usersRef =
@@ -1877,21 +1854,6 @@ function updateDrawCount() {
 
 
 
-/* =========================================================
-   ★★★ Firebase Transaction으로 횟수 차감 ★★★
-
-   중요:
-
-   브라우저에서
-
-       currentUser.drawCount -= 10;
-
-   만 하면 안 됨.
-
-   실제 DB의 숫자를 Transaction으로 차감해야
-   새로고침하거나 여러 번 요청해도 문제가 덜 생김.
-
-========================================================= */
 
 async function consumeDrawCount(count) {
 
@@ -2039,6 +2001,20 @@ async function consumeDrawCount(count) {
    ★ 1회 / 10회 뽑기
 ========================================================= */
 
+async function saveWinRecord() {
+    if (!currentUser) return;
+
+    try {
+        await addDoc(collection(db, "win"), {
+            username: currentUser.name,
+            time: serverTimestamp(),
+            rate: WIN_RATE
+        });
+    } catch (error) {
+        console.error("당첨 기록 저장 실패:", error);
+    }
+}
+
 async function draw(count) {
 
     if (!currentUser) {
@@ -2173,6 +2149,11 @@ async function draw(count) {
 
         }
 
+
+        // 당첨이 하나라도 있으면 Firebase win 컬렉션에 기록
+        if (results.some(card => card.win)) {
+            await saveWinRecord();
+        }
 
         showResults(
             results
@@ -2571,26 +2552,7 @@ function closeInfoPopup() {
 }
 
 
-/* =========================================================
-   이벤트 연결
-=========================================================
 
-   ★ 여기 중요 ★
-
-   HTML:
-
-       onclick="loginUser()"
-
-   를 전부 제거하고
-
-       addEventListener()
-
-   로 연결함.
-
-   따라서 module ↔ 일반 script
-   변수 공유 문제가 아예 발생하지 않음.
-
-========================================================= */
 
 
 /* 이름 입력 */
