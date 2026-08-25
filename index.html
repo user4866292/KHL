@@ -24,7 +24,9 @@
 
     font-family: Single Day;
 }
-
+.audio {
+    width: 1%;
+}
 body {
 
     margin: 0;
@@ -1152,14 +1154,16 @@ font-family: "Hachi Maru Pop";
 
 <body>
 <!-- 🎵 BGM -->
-<iframe
-    width="1"
-    height="1"
-    src="https://www.youtube.com/embed/h4SPl-PeFS4?autoplay=1&loop=1&playlist=h4SPl-PeFS4"
-    frameborder="0"
-    allow="autoplay"
-    style="position:absolute; opacity:0; pointer-events:none;">
-</iframe>
+<audio class="audio"
+    controls
+    volume="0.5"
+    src="/khl_music.mp3" 
+    type="audio/mpeg"
+    autoplay;
+    loop;
+
+>
+</audio>
 <div class="container">
 
 
