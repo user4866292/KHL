@@ -119,6 +119,10 @@ h1 {
    확률
 ========================================================= */
 
+.audio {
+    width: 1%;
+}
+
 .probability {
 
     margin-top: 30px;
@@ -822,6 +826,92 @@ font-family: "Hachi Maru Pop";
         winGlow 1s infinite alternate;
 }
 
+/* =========================================================
+   ★★★★☆ 4성 카드
+   5성보다 약한 빛
+========================================================= */
+
+.four-star {
+
+    animation:
+        fourStarGlow 1.8s infinite alternate;
+
+}
+
+
+.four-star .card-back {
+
+    border:
+        4px solid #d8b5e8;
+
+    box-shadow:
+        0 0 10px #d8b5e8,
+        0 0 20px rgba(216,181,232,.45);
+
+}
+
+
+@keyframes fourStarGlow {
+
+    from {
+
+        filter:
+            brightness(1);
+
+    }
+
+    to {
+
+        filter:
+            brightness(1.06);
+
+    }
+
+}
+
+
+/* =========================================================
+   ★★★★☆ 결과창
+========================================================= */
+
+.result.four-star-result {
+
+    animation:
+        fourStarResult .7s ease;
+
+}
+
+
+@keyframes fourStarResult {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(.97);
+
+    }
+
+    60% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.015);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
 
 @keyframes winGlow {
 
@@ -1152,18 +1242,16 @@ font-family: "Hachi Maru Pop";
 
 <body>
 <!-- 🎵 BGM -->
-    <div style="text-align: center;">
 <audio class="audio"
-    controls
-    volume="0.5"
-    src="./khl_music.mp3" 
+    controls 
+    volume ="0.5"
+    src="/khl_music.mp3" 
     type="audio/mpeg"
     autoplay
     loop
 
 >
 </audio>
-</div>
 
 <div class="container">
 
@@ -1235,10 +1323,13 @@ font-family: "Hachi Maru Pop";
 
     <div class="probability">
 
-        당첨 확률:
+        ナルミン:
 
         <strong>0.3%</strong>
 
+          |  ゆずき: 
+
+        <strong>3%</strong>
     </div>
 
 
@@ -1518,20 +1609,17 @@ const db =
 let currentUser = null;
 
 
-
 /* =========================================================
    ★ 가챠 확률
-=========================================================
 
-   0.01% = 0.0001
+   5성 = 0.01%
+   4성 = 0.1%
 
-   1%    = 0.01
-   0.1%  = 0.001
-   0.01% = 0.0001
-
+   DB에 기록되므로 조작 금지 !!
 ========================================================= */
 
-const WIN_RATE = 0.003; //DB에 확률 기록, 조작 금지
+const FIVE_STAR_RATE = 0.003;  // 0.3%
+const FOUR_STAR_RATE = 0.03;   // 5%
 
 
 
@@ -1552,7 +1640,18 @@ const winCard = {
 
 };
 
+const winCard4 = {
 
+    id:
+        "win_card4",
+
+    image:
+        "cards/win4.png",
+
+    win:
+        true
+
+};
 
 /* =========================================================
    ★ 꽝 카드
@@ -1686,7 +1785,6 @@ async function loginUser() {
 
 
     try {
-
 
 
         const usersRef =
@@ -2006,18 +2104,35 @@ async function consumeDrawCount(count) {
    ★ 1회 / 10회 뽑기
 ========================================================= */
 
-async function saveWinRecord() {
+async function saveWinRecord(rarity) {
+
     if (!currentUser) return;
 
     try {
-        await addDoc(collection(db, "win"), {
-            username: currentUser.name,
-            time: serverTimestamp(),
-            rate: WIN_RATE
-        });
+
+        await addDoc(
+            collection(db, "win"),
+            {
+                username:
+                    currentUser.name,
+
+                rate:
+                    FIVE_STAR_RATE,
+
+                time:
+                    serverTimestamp()
+            }
+        );
+
     } catch (error) {
-        console.error("당첨 기록 저장 실패:", error);
+
+        console.error(
+            "당첨 기록 저장 실패:",
+            error
+        );
+
     }
+
 }
 
 async function draw(count) {
@@ -2118,47 +2233,87 @@ async function draw(count) {
 
             */
 
-            const isWin =
-                Math.random()
-                < WIN_RATE;
+            /* =================================================
+   ★ 등급 추첨
+================================================= */
+
+const random = Math.random();
 
 
-            if (isWin) {
+/* =================================================
+   ★★★★★ 5성
+   확률: 0.01%
+================================================= */
 
-                results.push(
-                    winCard
-                );
+if (random < FIVE_STAR_RATE) {
 
-            } else {
+    results.push({
 
+        ...winCard,
 
-                const randomIndex =
-                    Math.floor(
+        rarity: 5
 
-                        Math.random()
-                        *
-                        availableLoseCards.length
-
-                    );
+    });
 
 
-                results.push(
+/* =================================================
+   ★★★★☆ 4성
+   확률: 0.1%
+================================================= */
 
-                    availableLoseCards[
-                        randomIndex
-                    ]
+} else if (random < FIVE_STAR_RATE + FOUR_STAR_RATE) {
 
-                );
+    results.push({
 
-            }
+        ...winCard4,
+
+        rarity: 4
+
+    });
+
+
+/* =================================================
+   꽝
+================================================= */
+
+} else {
+
+    const randomIndex =
+        Math.floor(
+
+            Math.random()
+            *
+            availableLoseCards.length
+
+        );
+
+
+    results.push(
+
+        availableLoseCards[
+            randomIndex
+        ]
+
+    );
+
+}
 
         }
 
 
-        // 당첨이 하나라도 있으면 Firebase win 컬렉션에 기록
-        if (results.some(card => card.win)) {
-            await saveWinRecord();
-        }
+ const winningCard =
+    results.find(
+        card => card.win
+    );
+
+
+if (winningCard) {
+
+    await saveWinRecord(
+        winningCard.rarity
+    );
+
+}
 
         showResults(
             results
@@ -2205,6 +2360,10 @@ function setButtonsDisabled(disabled) {
    결과 표시
 ========================================================= */
 
+/* =========================================================
+   결과 표시
+========================================================= */
+
 function showResults(results) {
 
     const result =
@@ -2224,19 +2383,33 @@ function showResults(results) {
             "resultTitle"
         );
 
-const resultUser =
-    document.getElementById(
-        "resultUser"
-    );
 
-resultUser.textContent =
-    `${currentUser.name}님의 뽑기 결과 ♡`;
+    const resultUser =
+        document.getElementById(
+            "resultUser"
+        );
+
+
+    resultUser.textContent =
+        `${currentUser.name}님의 뽑기 결과 ♡`;
+
+
     cards.innerHTML = "";
 
 
-    const hasWin =
+    /* =====================================================
+       ★ 등급 확인
+    ===================================================== */
+
+    const hasFive =
         results.some(
-            card => card.win
+            card => card.rarity === 5
+        );
+
+
+    const hasFour =
+        results.some(
+            card => card.rarity === 4
         );
 
 
@@ -2246,8 +2419,18 @@ resultUser.textContent =
             : "10連";
 
 
-    if (hasWin) {
+    /* 기존 4성 클래스 제거 */
 
+    result.classList.remove(
+        "four-star-result"
+    );
+
+
+    /* =====================================================
+       ★★★★★ 5성
+    ===================================================== */
+
+    if (hasFive) {
 
         playWinAnimation();
 
@@ -2272,8 +2455,34 @@ resultUser.textContent =
         );
 
 
-    } else {
+    /* =====================================================
+       ★★★★☆ 4성
+    ===================================================== */
 
+    } else if (hasFour) {
+
+        result
+            .classList
+            .add(
+                "four-star-result"
+            );
+
+
+        result
+            .classList
+            .add("show");
+
+
+        createCards(
+            results
+        );
+
+
+    /* =====================================================
+       꽝
+    ===================================================== */
+
+    } else {
 
         result
             .classList
@@ -2289,6 +2498,9 @@ resultUser.textContent =
 }
 
 
+/* =========================================================
+   카드 생성
+========================================================= */
 
 /* =========================================================
    카드 생성
@@ -2304,7 +2516,7 @@ function createCards(results) {
 
     results.forEach(
 
-        (card,index) => {
+        (card, index) => {
 
 
             const cardElement =
@@ -2313,13 +2525,29 @@ function createCards(results) {
                 );
 
 
+            /* =================================================
+               ★ 카드 등급별 클래스
+            ================================================= */
+
+            let cardClass =
+                "card";
+
+
+            if (card.rarity === 5) {
+
+                cardClass +=
+                    " win-card five-star";
+
+            } else if (card.rarity === 4) {
+
+                cardClass +=
+                    " win-card four-star";
+
+            }
+
+
             cardElement.className =
-                "card" +
-                (
-                    card.win
-                        ? " win-card"
-                        : ""
-                );
+                cardClass;
 
 
             cardElement.innerHTML = `
@@ -2368,7 +2596,6 @@ function createCards(results) {
     );
 
 }
-
 
 
 /* =========================================================
@@ -2555,7 +2782,6 @@ function closeInfoPopup() {
         .classList.remove("show");
 
 }
-
 
 
 
