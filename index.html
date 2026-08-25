@@ -1,0 +1,2715 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>♡ ─ ナルミン 수제 오무오무 스페셜 ─ ♡</title>
+
+
+<style>
+
+/* =========================================================
+   기본
+========================================================= */
+		@font-face {
+			/* 폰트 이름 설정 : 저장된 파일에서 확장자 명을 제외 */
+			font-family: 'HakgyoansimBombanghakR';
+			
+			/* 폰트 경로 설정 */ 
+			src: url('./font/HakgyoansimBombanghakR.ttf');
+			
+			/* 폰트 타입 지정 */
+			format('truetype'); 
+		}
+
+* {
+    box-sizing: border-box;
+
+    font-family: HakgyoansimBombanghakR;
+}
+
+body {
+
+    background:linear-gradient(to top, white, oklab(85.69099999999999% 0.09584 -0.0289));
+    margin: 0;
+
+    min-height: 100vh;
+
+    color: #6d5362;
+
+    font-family:
+        Arial,
+        "Noto Sans KR",
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   전체 컨테이너
+========================================================= */
+
+.container {
+
+    width: min(1100px, 94%);
+
+    margin: auto;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 50px 0;
+}
+
+
+/* =========================================================
+   제목
+========================================================= */
+
+h1 {
+
+    margin: 0;
+
+    font-size: 52px;
+
+    letter-spacing: 2px;
+
+
+
+    color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px hwb(0 65% 0%), 0 0 30px hsl(330, 100%, 69%), 0 0 40px hsl(224, 100%, 81%), 0 0 55px hsl(256, 100%, 68%), 0 0 75px hsl(221, 100%, 64%);
+}
+
+
+.subtitle {
+
+    margin-top: 10px;
+
+    color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px hsl(0, 100%, 66%), 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   공통
+========================================================= */
+
+.screen {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   확률
+========================================================= */
+
+.probability {
+
+    margin-top: 30px;
+
+    padding: 11px 25px;
+
+    border: 1px solid #f4c5d5;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.72);
+
+    box-shadow:
+        0 6px 20px rgba(221,153,180,.12);
+
+    
+    font-size: 14px;
+
+    color: #987384;
+}
+
+
+.probability strong {
+    color: #e77fa2;
+}
+
+
+/* =========================================================
+   이름 입력
+========================================================= */
+
+.login-area {
+
+    margin-top: 70px;
+
+    width: min(420px,90%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+.login-message {
+
+    font-size: 16px;
+
+    margin-bottom: 25px;
+
+    letter-spacing: 2px;
+
+    text-align: center;
+font-family: "Hachi Maru Pop";
+    
+    color: hsl(352, 96%, 80%);
+}
+
+
+.name-input {
+
+    width: 100%;
+
+    padding: 17px 20px;
+
+    border-radius: 18px;
+
+    border: 2px solid #f5c8d8;
+
+    background: rgba(255,255,255,.82);
+
+    color: #725464;
+
+    font-size: 18px;
+
+    text-align: center;
+
+    outline: none;
+
+    transition: .25s;
+
+    box-shadow:
+        0 7px 20px rgba(224,151,179,.1);
+}
+
+
+.name-input::placeholder {
+    color: #c7a9b5;
+}
+
+
+.name-input:focus {
+
+    border-color: #ee9fba;
+
+    background: #fff;
+
+    box-shadow:
+        0 0 0 5px rgba(246,184,205,.25),
+        0 8px 25px rgba(224,151,179,.15);
+}
+
+
+/* =========================================================
+   시작 버튼
+========================================================= */
+
+.start-button  {
+
+    width: 30%;
+
+    margin-top: 15gpx;
+
+    padding: 17px;
+
+    border: 0;
+
+    border-radius: 18px;
+font-family: "Hachi Maru Pop";
+    background:
+        linear-gradient(
+            135deg,
+            #f3a6bf,
+            hsl(251, 100%, 81%)
+        );
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+    box-shadow:
+        0 8px 20px rgba(222,130,164,.25);
+}
+.help-button{
+
+    width: 30%;
+
+    margin-top: 15px;
+
+    padding: 17px;
+
+    border: 0;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f3a6bf,
+            hsl(251, 100%, 81%)
+        );
+
+    color: white;
+font-family: "Hachi Maru Pop";
+    font-size: 12px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+    box-shadow:
+        0 8px 20px rgba(222,130,164,.25);
+}
+
+
+.start-button:hover {
+
+    transform: translateY(-3px);
+
+    filter: brightness(1.04);
+}
+
+
+/* =========================================================
+   가챠 영역
+========================================================= */
+
+.gacha-area {
+
+    margin-top: 55px;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   머신
+========================================================= */
+
+.machine {
+
+    width: 360px;
+
+    min-height: 430px;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.92),
+            rgba(255,236,244,.94)
+        );
+
+    border:
+        2px solid rgba(255,190,210,.6);
+
+    box-shadow:
+
+        0 25px 60px
+        rgba(202,137,164,.2),
+
+        inset 0 0 35px
+        rgba(255,255,255,.8);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 35px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.machine::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    background:
+        rgba(255,174,207,.25);
+
+    filter: blur(65px);
+
+    border-radius: 50%;
+
+    top: -90px;
+}
+
+
+/* =========================================================
+   크리스탈
+========================================================= */
+
+.crystal {
+
+    width: 130px;
+    height: 170px;
+
+    margin-top: 10px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 60px;
+
+    z-index: 1;
+}
+
+
+.crystal::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffc6dc,
+            #f49abd 45%,
+            #dca9f5
+        );
+
+    clip-path:
+        polygon(
+            50% 0%,
+            90% 25%,
+            75% 100%,
+            25% 100%,
+            10% 25%
+        );
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(244,154,189,.7)
+        );
+
+    animation:
+        float 2.5s ease-in-out infinite;
+}
+
+
+.crystal::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 35px;
+    height: 70px;
+
+    left: 42px;
+    top: 38px;
+
+    background:
+        rgba(255,255,255,.55);
+
+    border-radius: 50%;
+
+    transform: rotate(25deg);
+
+    filter: blur(3px);
+}
+
+
+.crystal span {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: #fff;
+
+    text-shadow:
+        0 0 10px #fff,
+        0 0 25px #f59fbd;
+}
+
+
+@keyframes float {
+
+    0%,100% {
+
+        transform:
+            translateY(0)
+            rotate(-2deg);
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px)
+            rotate(2deg);
+    }
+}
+
+
+/* =========================================================
+   사용자 정보
+========================================================= */
+
+.user-info {
+
+    margin-top: 5px;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+
+    z-index: 2;
+}
+
+
+.user-name {
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #805d6d;
+}
+
+
+.draw-count {
+
+    margin-top: 8px;
+
+    color: #b493a2;
+
+    font-size: 14px;
+}
+
+
+.draw-count strong {
+
+    color: #e4779e;
+
+    font-size: 19px;
+}
+
+
+/* =========================================================
+   버튼
+========================================================= */
+
+.buttons {
+
+    width: 100%;
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 20px;
+
+    z-index: 2;
+}
+
+
+button {
+
+    flex: 1;
+
+    border: 0;
+
+    border-radius: 17px;
+
+    padding: 17px 10px;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+
+button:hover {
+
+    transform: translateY(-3px);
+
+    filter: brightness(1.04);
+}
+
+
+button:active {
+
+    transform: translateY(1px);
+}
+
+
+button:disabled {
+
+    opacity: .45;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+.single {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ee9fbb,
+            #e982a8
+        );
+}
+
+
+.ten {
+
+    background:
+        linear-gradient(
+            135deg,
+            #cba8ed,
+            #b995e0
+        );
+}
+
+
+/* =========================================================
+   결과창
+========================================================= */
+
+.result {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(255,239,246,.94);
+
+    backdrop-filter: blur(12px);
+
+    z-index: 100;
+
+    display: none;
+
+    align-items: center;
+
+    font-family: "Hachi Maru Pop";
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    padding: 30px;
+}
+
+
+.result.show {
+
+    display: flex;
+
+    animation: fadeIn .3s ease;
+}
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+.result-title {
+
+    font-size: 36px;
+
+    font-weight: bold;
+
+    margin-bottom: 35px;
+font-family: "Hachi Maru Pop";
+    color: #df82a5;
+
+    text-shadow:
+        0 3px 0 white,
+        0 5px 15px rgba(220,120,160,.25);
+}
+
+
+/* =========================================================
+   카드
+========================================================= */
+
+.cards {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    max-width: 1100px;
+
+    max-height: 70vh;
+
+    overflow-y: auto;
+
+    padding: 15px;
+}
+
+
+.card {
+
+    width: 190px;
+
+    height: 270px;
+
+    perspective: 1000px;
+}
+
+
+.card-inner {
+
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform .8s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+
+.card.flipped .card-inner {
+
+    transform:
+        rotateY(180deg);
+}
+
+
+.card-front,
+.card-back {
+
+    position: absolute;
+
+    inset: 0;
+
+    backface-visibility: hidden;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+.card-front {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7c5d9,
+            #dcbff0
+        );
+
+    border:
+        3px solid
+        rgba(255,255,255,.8);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 55px;
+
+    color: white;
+}
+
+
+.card-back {
+    transform: rotateY(180deg);
+    background: #fff5f8;
+    border: 3px solid rgba(255,255,255,.9);
+    overflow: hidden;
+}
+
+.card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+
+.win-card .card-back {
+
+    border:
+        4px solid #f5b6cd;
+
+    box-shadow:
+        0 0 15px #f5b6cd,
+        0 0 35px rgba(245,182,205,.7);
+}
+
+
+.win-card {
+
+    animation:
+        winGlow 1s infinite alternate;
+}
+
+
+@keyframes winGlow {
+
+    from {
+        filter: brightness(1);
+    }
+
+    to {
+        filter: brightness(1.12);
+    }
+}
+
+
+/* =========================================================
+   닫기
+========================================================= */
+
+.close {
+
+    margin-top: 30px;
+
+    flex: none;
+
+    width: 180px;
+
+    background: #dcaec2;
+}
+
+
+/* =========================================================
+   팝업
+========================================================= */
+
+.popup {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 500;
+
+    background:
+        rgba(119,79,100,.25);
+
+    backdrop-filter: blur(5px);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.popup.show {
+
+    display: flex;
+}
+
+
+.popup-box {
+
+    width: min(380px,85%);
+
+    padding: 35px 25px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff,
+            #fff0f5
+        );
+
+    border:
+        2px solid #f5c5d7;
+
+    box-shadow:
+        0 20px 60px
+        rgba(191,120,153,.25);
+
+    text-align: center;
+
+    animation:
+        popupIn .25s ease;
+}
+
+
+@keyframes popupIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.8);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+.popup-message {
+
+    font-size: 20px;
+
+    line-height: 1.6;
+
+    color: #806071;
+}
+
+
+.popup-button {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ee9fbb,
+            #d99acb
+        );
+}
+
+
+/* =========================================================
+   당첨 연출
+========================================================= */
+
+.celebration {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 200;
+
+    display: none;
+
+    overflow: hidden;
+}
+
+
+.celebration.active {
+
+    display: block;
+}
+
+
+.light {
+
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+
+    background: #fff;
+
+    border-radius: 50%;
+
+    left: 50%;
+    top: 50%;
+
+    box-shadow:
+        0 0 15px #fff,
+        0 0 35px #ffb9d3,
+        0 0 70px #d9a5ed;
+
+    animation:
+        explode 1.4s ease-out forwards;
+}
+
+
+@keyframes explode {
+
+    to {
+
+        transform:
+            translate(
+                calc((var(--x) - .5) * 100vw),
+                calc((var(--y) - .5) * 100vh)
+            )
+            scale(0);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   WIN 메시지
+========================================================= */
+
+.win-message {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    z-index: 210;
+
+    pointer-events: none;
+}
+
+
+.win-message.active {
+
+    display: flex;
+
+    animation:
+        winAppear 1s ease forwards;
+}
+
+
+.win-message .big {
+
+    font-size:
+        clamp(
+            60px,
+            12vw,
+            150px
+        );
+
+    font-weight: 900;
+
+    letter-spacing: 15px;
+
+    color: #f08eaf;
+
+    text-shadow:
+        0 3px 0 #fff,
+        0 0 15px #fff,
+        0 0 35px #ffb4cc,
+        0 0 70px #e5b2f3;
+}
+
+
+
+.win-message .small {
+
+    margin-top: 10px;
+
+    font-size: 22px;
+
+    letter-spacing: 8px;
+
+    color: #d58bb0;
+
+    text-shadow:
+        0 2px 0 white;
+}
+
+
+@keyframes winAppear {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(2);
+    }
+
+    60% {
+
+        opacity: 1;
+
+        transform:
+            scale(.95);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   모바일
+========================================================= */
+
+@media (max-width:600px) {
+
+    .machine {
+        width: 320px;
+    }
+
+    .card {
+
+        width: 145px;
+
+        height: 205px;
+    }
+
+    .result-title {
+        font-size: 28px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<iframe width="100" height="100" src="https://www.youtube.com/embed/h4SPl-PeFS4?si=685D5qfoTKIY30jU?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="container">
+
+
+<div
+    id="loginScreen"
+    class="screen"
+>
+
+    <h1>⋆｡˚✩˚｡⋆</h1>
+
+    <div class="subtitle">
+        ♡ ─ ナルミン 수제 오무오무 스페셜 ─ ♡
+    </div>
+
+
+
+
+    <div class="login-area">
+
+        <div class="login-message">
+            ⋆ ⭒˚ ✶ 君の名前は？ ✶ ⭒˚ ⋆
+        </div>
+
+
+        <input
+            id="nameInput"
+            class="name-input"
+            type="text"
+            placeholder="ex. 츠바사, 나루요, 후쥬"
+            autocomplete="off"
+        >
+
+<div style="width: 100%; text-align: center;" >
+        <button
+            id="loginButton"
+            class="start-button"
+        >
+            スタート
+        </button>
+
+<button id="helpButton" class="help-button">
+    HELP!!!
+</button>
+
+</div>
+    </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     [화면 2] 가챠
+====================================================== -->
+
+<div
+    id="gachaScreen"
+    class="screen hidden"
+>
+
+    <h1>⋆｡˚✩˚｡⋆</h1>
+
+    <div class="subtitle">
+        ♡ ─ ナルミン 수제 오무오무 스페셜 ─ ♡
+    </div>
+
+
+    <div class="probability">
+
+        당첨 확률:
+
+        <strong>0.01%</strong>
+
+    </div>
+
+
+    <div class="gacha-area">
+
+        <div class="machine">
+
+
+            <div class="user-info">
+
+                <div
+                    id="userName"
+                    class="user-name"
+                ></div>
+
+
+                <div class="draw-count">
+
+                    남은 뽑기 횟수
+
+                    <strong id="drawCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="crystal">
+
+                <span>✦</span>
+
+            </div>
+
+
+            <div class="buttons">
+
+                <button
+                    id="singleButton"
+                    class="single"
+                >
+                    1回
+                </button>
+
+
+                <button
+                    id="tenButton"
+                    class="ten"
+                >
+                    10回
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     결과
+===================================================== -->
+
+<div
+    class="result"
+    id="result"
+>
+
+    <div
+        class="result-title"
+        id="resultTitle"
+    >
+        ♡ ♡ ♡
+    </div>
+<div
+    class="result-user"
+    id="resultUser"
+><br><br></div>
+
+    <div
+        class="cards"
+        id="cards"
+    ></div>
+
+
+    <button
+        class="close"
+        id="closeResultButton"
+    >
+        닫기
+    </button>
+
+</div>
+
+
+
+<!-- =====================================================
+     이름 없음 팝업
+===================================================== -->
+
+<div
+    class="popup"
+    id="namePopup"
+>
+
+    <div class="popup-box">
+
+        <div class="popup-message">
+
+            이름을 다시 입력해줘
+            (*˘▿˘人)
+
+        </div>
+
+
+        <button
+            class="popup-button"
+            id="closePopupButton"
+        >
+            확인
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- 설명 팝업-->
+
+
+<div
+    class="popup"
+    id="infoPopup"
+>
+
+    <div class="popup-box">
+
+        <div class="popup-message">
+
+            1. 츠바사 군에게 가챠 비용을 낸다 ♡<br>
+               (1회 = 1c, 10회 = 10c 최초 1회 무료)<br><br>
+            2. 뽑기 횟수가 충전되기까지 기다린다 ♡<br>
+              ㄴ 수동이니까 급하면 꼭 말해줘 !<br><br>
+            3. 「스페셜 나루밍」을 뽑게 되면<br>츠바사 군에게 얘기해줘 ♡<br><br>
+               당첨 시 나루밍의 오무오무 찬스와<br>총 매출액 절반을 선물 !!!
+
+        </div>
+
+
+<button
+    class="popup-button"
+    id="closeInfoPopupButton"
+>
+    확인
+</button>
+
+    </div>
+
+</div>
+
+
+
+
+<!-- =====================================================
+     당첨 연출
+===================================================== -->
+
+<div
+    class="celebration"
+    id="celebration"
+></div>
+
+
+<div
+    class="win-message"
+    id="winMessage"
+>
+
+    <div class="big">
+        !!!
+    </div>
+        ♡ オメデト ♡
+    <div class="small">
+        
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     ★★★ Firebase + 가챠 전체를 하나의 module에서 처리 ★★★
+========================================================= -->
+
+<script type="module">
+
+
+/* =========================================================
+   Firebase SDK
+========================================================= */
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+
+import {
+    getFirestore,
+    collection,
+    query,
+    where,
+    limit,
+    getDocs,
+    doc,
+    runTransaction
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+
+/* =========================================================
+   ★ Firebase 설정
+========================================================= */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyBg-Q09kQVTR_9WEKssh8F0mCFzmjtIT3I",
+
+    authDomain:
+        "khl-abbe7.firebaseapp.com",
+
+    projectId:
+        "khl-abbe7",
+
+    storageBucket:
+        "khl-abbe7.firebasestorage.app",
+
+    messagingSenderId:
+        "871341495577",
+
+    appId:
+        "1:871341495577:web:c9b9cffafad412fc64e188",
+
+    measurementId:
+        "G-6XT0VECWLR"
+
+};
+
+
+
+/* =========================================================
+   Firebase 초기화
+========================================================= */
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const db =
+    getFirestore(app);
+
+
+
+/* =========================================================
+   현재 로그인 사용자
+========================================================= */
+
+let currentUser = null;
+
+
+
+/* =========================================================
+   ★ 가챠 확률
+=========================================================
+
+   0.01% = 0.0001
+
+   1%    = 0.01
+   0.1%  = 0.001
+   0.01% = 0.0001
+
+========================================================= */
+
+const WIN_RATE = 0.0001;
+
+
+
+/* =========================================================
+   ★ 당첨 카드
+========================================================= */
+
+const winCard = {
+
+    id:
+        "win",
+
+    image:
+        "cards/win.png",
+
+    win:
+        true
+
+};
+
+
+
+/* =========================================================
+   ★ 꽝 카드
+
+   cards/
+
+   lose_01.png
+   lose_02.png
+   ...
+   lose_30.png
+
+   실제 존재하는 이미지들만 자동으로 사용.
+========================================================= */
+
+const loseCards = [];
+
+
+for (
+    let i = 1;
+    i <= 10;
+    i++
+) {
+
+    const number =
+        String(i).padStart(2,"0");
+
+
+    loseCards.push({
+
+        id:
+            `lose_${number}`,
+
+        image:
+            `cards/lose_${number}.png`,
+
+        win:
+            false
+
+    });
+
+}
+
+
+
+/* =========================================================
+   이미지 존재 여부
+========================================================= */
+
+async function imageExists(url) {
+
+    try {
+
+        const response =
+            await fetch(
+                url,
+                {
+                    method: "HEAD"
+                }
+            );
+
+
+        return response.ok;
+
+    } catch {
+
+        return false;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   사용 가능한 꽝 카드
+========================================================= */
+
+async function getAvailableLoseCards() {
+
+    const available = [];
+
+
+    for (
+        const card of loseCards
+    ) {
+
+        if (
+            await imageExists(
+                card.image
+            )
+        ) {
+
+            available.push(card);
+
+        }
+
+    }
+
+
+    return available;
+
+}
+
+
+
+/* =========================================================
+   ★ 이름 입력 → Firebase 검색
+========================================================= */
+
+async function loginUser() {
+
+    const input =
+        document.getElementById(
+            "nameInput"
+        );
+
+
+    const name =
+        input.value.trim();
+
+
+    /* 이름 미입력 */
+
+    if (!name) {
+
+        showNamePopup();
+
+        return;
+
+    }
+
+
+    try {
+
+
+        /* =====================================================
+           ★★★ Firebase DB 구조 ★★★
+
+           컬렉션 이름:
+           users
+
+           예:
+
+           users
+             ├─ 문재인
+             │    ├─ name: "문재인"
+             │    └─ drawCount: 30
+             │
+             ├─ 홍길동
+             │    ├─ name: "홍길동"
+             │    └─ drawCount: 20
+             │
+             └─ 김철수
+                  ├─ name: "김철수"
+                  └─ drawCount: 0
+
+           ★★★ 여기만 네 DB 구조에 맞춰서
+               수정하면 됨. ★★★
+        ===================================================== */
+
+
+        const usersRef =
+            collection(
+                db,
+                "users"
+            );
+
+
+        const userQuery =
+            query(
+
+                usersRef,
+
+                where(
+                    "name",
+                    "==",
+                    name
+                ),
+
+                limit(1)
+
+            );
+
+
+        const snapshot =
+            await getDocs(
+                userQuery
+            );
+
+
+        /* =====================================================
+           ★ 이름이 DB에 없는 경우
+        ===================================================== */
+
+        if (
+            snapshot.empty
+        ) {
+
+            showNamePopup();
+
+            return;
+
+        }
+
+
+        /* =====================================================
+           ★ 이름이 DB에 있는 경우
+        ===================================================== */
+
+        const userDoc =
+            snapshot.docs[0];
+
+
+        const userData =
+            userDoc.data();
+
+
+        currentUser = {
+
+            docId:
+                userDoc.id,
+
+            name:
+                userData.name,
+
+            drawCount:
+                Number(
+                    userData.drawCount || 0
+                )
+
+        };
+
+
+        enterGachaScreen();
+
+
+    } catch (error) {
+
+        console.error(
+            "Firebase 사용자 검색 실패:",
+            error
+        );
+
+
+        alert(
+            "사용자 정보를 불러오지 못했습니다.\n\n" +
+            "Firebase 설정 또는 Firestore 규칙을 확인해주세요."
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   ★ 가챠 화면으로 이동
+========================================================= */
+
+function enterGachaScreen() {
+
+    document
+        .getElementById(
+            "loginScreen"
+        )
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById(
+            "gachaScreen"
+        )
+        .classList
+        .remove("hidden");
+
+
+    updateDrawCount();
+
+}
+
+
+
+/* =========================================================
+   남은 횟수 표시
+========================================================= */
+
+function updateDrawCount() {
+
+    if (!currentUser) {
+
+        return;
+
+    }
+
+
+    document
+        .getElementById(
+            "userName"
+        )
+        .textContent =
+            currentUser.name + " 님 ♥";
+
+
+    document
+        .getElementById(
+            "drawCount"
+        )
+        .textContent =
+            currentUser.drawCount;
+
+
+    document
+        .getElementById(
+            "singleButton"
+        )
+        .disabled =
+            currentUser.drawCount < 1;
+
+
+    document
+        .getElementById(
+            "tenButton"
+        )
+        .disabled =
+            currentUser.drawCount < 10;
+
+}
+
+
+
+/* =========================================================
+   ★★★ Firebase Transaction으로 횟수 차감 ★★★
+
+   중요:
+
+   브라우저에서
+
+       currentUser.drawCount -= 10;
+
+   만 하면 안 됨.
+
+   실제 DB의 숫자를 Transaction으로 차감해야
+   새로고침하거나 여러 번 요청해도 문제가 덜 생김.
+
+========================================================= */
+
+async function consumeDrawCount(count) {
+
+    if (!currentUser) {
+
+        return false;
+
+    }
+
+
+    try {
+
+
+        /* 현재 사용자 document */
+
+        const userRef =
+            doc(
+                db,
+                "users",
+                currentUser.docId
+            );
+
+
+        let newCount;
+
+
+        await runTransaction(
+
+            db,
+
+            async (transaction) => {
+
+
+                const userSnapshot =
+                    await transaction.get(
+                        userRef
+                    );
+
+
+                if (
+                    !userSnapshot.exists()
+                ) {
+
+                    throw new Error(
+                        "USER_NOT_FOUND"
+                    );
+
+                }
+
+
+                const data =
+                    userSnapshot.data();
+
+
+                const currentCount =
+                    Number(
+                        data.drawCount || 0
+                    );
+
+
+                /* 횟수 부족 */
+
+                if (
+                    currentCount < count
+                ) {
+
+                    throw new Error(
+                        "NOT_ENOUGH_DRAW"
+                    );
+
+                }
+
+
+                newCount =
+                    currentCount - count;
+
+
+                /* DB 업데이트 */
+
+                transaction.update(
+
+                    userRef,
+
+                    {
+
+                        drawCount:
+                            newCount
+
+                    }
+
+                );
+
+            }
+
+        );
+
+
+        /* 화면상의 숫자도 갱신 */
+
+        currentUser.drawCount =
+            newCount;
+
+
+        updateDrawCount();
+
+
+        return true;
+
+
+    } catch (error) {
+
+        console.error(
+            "뽑기 횟수 차감 실패:",
+            error
+        );
+
+
+        if (
+            error.message ===
+            "NOT_ENOUGH_DRAW"
+        ) {
+
+            alert(
+                "뽑기 횟수가 부족합니다."
+            );
+
+        } else {
+
+            alert(
+                "뽑기 횟수 차감에 실패했습니다."
+            );
+
+        }
+
+
+        return false;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   ★ 1회 / 10회 뽑기
+========================================================= */
+
+async function draw(count) {
+
+    if (!currentUser) {
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       현재 화면의 횟수 먼저 확인
+    ===================================================== */
+
+    if (
+        currentUser.drawCount < count
+    ) {
+
+        alert(
+            "뽑기 횟수가 부족합니다."
+        );
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       버튼 잠금
+
+       뽑는 도중 중복 클릭 방지
+    ===================================================== */
+
+    setButtonsDisabled(true);
+
+
+    try {
+
+
+        /* =================================================
+           ★★★ DB에서 실제 차감 ★★★
+        ================================================= */
+
+        const success =
+            await consumeDrawCount(
+                count
+            );
+
+
+        if (!success) {
+
+            return;
+
+        }
+
+
+        /* =================================================
+           꽝 이미지 확인
+        ================================================= */
+
+        const availableLoseCards =
+            await getAvailableLoseCards();
+
+
+        if (
+            availableLoseCards.length === 0
+        ) {
+
+            alert(
+                "cards 폴더에 꽝 카드 PNG를 넣어주세요."
+            );
+
+            return;
+
+        }
+
+
+        /* =================================================
+           결과 생성
+        ================================================= */
+
+        const results = [];
+
+
+        for (
+            let i = 0;
+            i < count;
+            i++
+        ) {
+
+
+            /*
+
+               0.01%
+               ↓
+               Math.random() < 0.0001
+
+            */
+
+            const isWin =
+                Math.random()
+                < WIN_RATE;
+
+
+            if (isWin) {
+
+                results.push(
+                    winCard
+                );
+
+            } else {
+
+
+                const randomIndex =
+                    Math.floor(
+
+                        Math.random()
+                        *
+                        availableLoseCards.length
+
+                    );
+
+
+                results.push(
+
+                    availableLoseCards[
+                        randomIndex
+                    ]
+
+                );
+
+            }
+
+        }
+
+
+        showResults(
+            results
+        );
+
+
+    } finally {
+
+
+        /* 버튼 상태 갱신 */
+
+        updateDrawCount();
+
+    }
+
+}
+
+
+
+/* =========================================================
+   버튼 비활성화
+========================================================= */
+
+function setButtonsDisabled(disabled) {
+
+    document
+        .querySelectorAll(
+            ".buttons button"
+        )
+        .forEach(
+            button => {
+
+                button.disabled =
+                    disabled;
+
+            }
+        );
+
+}
+
+
+
+/* =========================================================
+   결과 표시
+========================================================= */
+
+function showResults(results) {
+
+    const result =
+        document.getElementById(
+            "result"
+        );
+
+
+    const cards =
+        document.getElementById(
+            "cards"
+        );
+
+
+    const title =
+        document.getElementById(
+            "resultTitle"
+        );
+
+const resultUser =
+    document.getElementById(
+        "resultUser"
+    );
+
+resultUser.textContent =
+    `${currentUser.name}님의 뽑기 결과 ♡`;
+    cards.innerHTML = "";
+
+
+    const hasWin =
+        results.some(
+            card => card.win
+        );
+
+
+    title.textContent =
+        results.length === 1
+            ? "♡ ♡ ♡"
+            : "10連";
+
+
+    if (hasWin) {
+
+
+        playWinAnimation();
+
+
+        setTimeout(
+
+            () => {
+
+                result
+                    .classList
+                    .add("show");
+
+
+                createCards(
+                    results
+                );
+
+            },
+
+            1800
+
+        );
+
+
+    } else {
+
+
+        result
+            .classList
+            .add("show");
+
+
+        createCards(
+            results
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   카드 생성
+========================================================= */
+
+function createCards(results) {
+
+    const cards =
+        document.getElementById(
+            "cards"
+        );
+
+
+    results.forEach(
+
+        (card,index) => {
+
+
+            const cardElement =
+                document.createElement(
+                    "div"
+                );
+
+
+            cardElement.className =
+                "card" +
+                (
+                    card.win
+                        ? " win-card"
+                        : ""
+                );
+
+
+            cardElement.innerHTML = `
+
+                <div class="card-inner">
+
+                    <div class="card-front">
+                        ?
+                    </div>
+
+                    <div class="card-back">
+
+                        <img
+                            src="${card.image}"
+                            alt="${card.id}"
+                        >
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            cards.appendChild(
+                cardElement
+            );
+
+
+            setTimeout(
+
+                () => {
+
+                    cardElement
+                        .classList
+                        .add("flipped");
+
+                },
+
+                300 + index * 250
+
+            );
+
+        }
+
+    );
+
+}
+
+
+
+/* =========================================================
+   당첨 연출
+========================================================= */
+
+function playWinAnimation() {
+
+    const celebration =
+        document.getElementById(
+            "celebration"
+        );
+
+
+    const message =
+        document.getElementById(
+            "winMessage"
+        );
+
+
+    celebration.innerHTML = "";
+
+
+    for (
+        let i = 0;
+        i < 100;
+        i++
+    ) {
+
+
+        const light =
+            document.createElement(
+                "div"
+            );
+
+
+        light.className =
+            "light";
+
+
+        light.style.setProperty(
+            "--x",
+            Math.random()
+        );
+
+
+        light.style.setProperty(
+            "--y",
+            Math.random()
+        );
+
+
+        light.style.animationDelay =
+            `${Math.random() * .4}s`;
+
+
+        celebration.appendChild(
+            light
+        );
+
+    }
+
+
+    celebration
+        .classList
+        .add("active");
+
+
+    setTimeout(
+
+        () => {
+
+            message
+                .classList
+                .add("active");
+
+        },
+
+        300
+
+    );
+
+
+    setTimeout(
+
+        () => {
+
+            message
+                .classList
+                .remove("active");
+
+
+            celebration
+                .classList
+                .remove("active");
+
+        },
+
+        1700
+
+    );
+
+}
+
+
+
+/* =========================================================
+   결과창 닫기
+========================================================= */
+
+function closeResult() {
+
+    document
+        .getElementById(
+            "result"
+        )
+        .classList
+        .remove("show");
+
+
+    document
+        .getElementById(
+            "cards"
+        )
+        .innerHTML = "";
+
+}
+
+
+
+/* =========================================================
+   이름 없음 팝업
+========================================================= */
+
+function showNamePopup() {
+
+    document
+        .getElementById(
+            "namePopup"
+        )
+        .classList
+        .add("show");
+
+}
+
+
+function closeNamePopup() {
+
+    document
+        .getElementById(
+            "namePopup"
+        )
+        .classList
+        .remove("show");
+
+
+    document
+        .getElementById(
+            "nameInput"
+        )
+        .focus();
+
+}
+
+/*
+==============================================================
+[이용 안내 팝업]
+==============================================================
+*/
+
+function showInfoPopup() {
+
+    document
+        .getElementById("infoPopup")
+        .classList.add("show");
+
+}
+
+
+function closeInfoPopup() {
+
+    document
+        .getElementById("infoPopup")
+        .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   이벤트 연결
+=========================================================
+
+   ★ 여기 중요 ★
+
+   HTML:
+
+       onclick="loginUser()"
+
+   를 전부 제거하고
+
+       addEventListener()
+
+   로 연결함.
+
+   따라서 module ↔ 일반 script
+   변수 공유 문제가 아예 발생하지 않음.
+
+========================================================= */
+
+
+/* 이름 입력 */
+
+document
+    .getElementById(
+        "loginButton"
+    )
+    .addEventListener(
+        "click",
+        loginUser
+    );
+
+
+/* 1회 */
+
+document
+    .getElementById(
+        "singleButton"
+    )
+    .addEventListener(
+
+        "click",
+
+        () => {
+
+            draw(1);
+
+        }
+
+    );
+
+
+/* 10회 */
+
+document
+    .getElementById(
+        "tenButton"
+    )
+    .addEventListener(
+
+        "click",
+
+        () => {
+
+            draw(10);
+
+        }
+
+    );
+
+
+/* 결과 닫기 */
+
+document
+    .getElementById(
+        "closeResultButton"
+    )
+    .addEventListener(
+
+        "click",
+
+        closeResult
+
+    );
+
+
+/* 팝업 닫기 */
+
+document
+    .getElementById(
+        "closePopupButton"
+    )
+    .addEventListener(
+
+        "click",
+
+        closeNamePopup
+
+    );
+
+
+/* Enter */
+
+document
+    .getElementById(
+        "nameInput"
+    )
+    .addEventListener(
+
+        "keydown",
+
+        event => {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                loginUser();
+
+            }
+
+        }
+
+    );
+
+document
+    .getElementById("helpButton")
+    .addEventListener("click", showInfoPopup);
+
+document
+    .getElementById("closeInfoPopupButton")
+    .addEventListener("click", closeInfoPopup);
+</script>
+
+</body>
+
+</html>
